@@ -41,59 +41,7 @@
                 <button onclick="copyText('qa1')" class="dark">Copy</button>
             </div>
 
-            <div class="qa-item">
-                <label for="qa2">Hard Question 2 & Answer:</label>
-                <pre id="qa2" class="dark">
-                    Write PL/pgSQL using trigger for insertion of first_name, last_name, amount and payment_id
-                    into Customer_backup table when
-                    deletion happens from Customer table considering below schema.
-                    Customer_backup (first_name, last_name, amount, payment_id)
-                    Customer (customer_id, payment_id, first_name, last_name, amount)
-                    Create tables with Primary Key, foreign key constraints in given schemas.
-
-                    CREATE OR REPLACE FUNCTION backup_customer_on_delete()
-                    RETURNS TRIGGER AS $$
-                    BEGIN
-                    -- Insert deleted customer's data into Customer_backup table
-                    INSERT INTO Customer_backup (first_name, last_name, amount, payment_id)
-                    VALUES (OLD.first_name, OLD.last_name, OLD.amount, OLD.payment_id);
-                    RETURN OLD;
-                    END;
-                    $$ LANGUAGE plpgsql;
-                    CREATE TRIGGER customer_delete_trigger
-                    BEFORE DELETE ON Customer
-                    FOR EACH ROW
-                    EXECUTE FUNCTION backup_customer_on_delete();
-                    </pre>
-                <button onclick="copyText('qa2')" class="dark">Copy</button>
-            </div>
-
-            <div class="qa-item">
-                <label for="qa3">Hard Question 3 & Answer:</label>
-                <pre id="qa2" class="dark">
-                    Write PL/pgSQL using trigger for insertion of first_name, last_name, amount and payment_id
-                    into Customer_backup table when
-                    deletion happens from Customer table considering below schema.
-                    Customer_backup (first_name, last_name, amount, payment_id)
-                    Customer (customer_id, payment_id, first_name, last_name, amount)
-                    Create tables with Primary Key, foreign key constraints in given schemas.
-                    
-                    CREATE OR REPLACE FUNCTION backup_customer_on_delete()
-                    RETURNS TRIGGER AS $$
-                    BEGIN
-                    -- Insert deleted customer's data into Customer_backup table
-                    INSERT INTO Customer_backup (first_name, last_name, amount, payment_id)
-                    VALUES (OLD.first_name, OLD.last_name, OLD.amount, OLD.payment_id);
-                    RETURN OLD;
-                    END;
-                    $$ LANGUAGE plpgsql;
-                    CREATE TRIGGER customer_delete_trigger
-                    BEFORE DELETE ON Customer
-                    FOR EACH ROW
-                    EXECUTE FUNCTION backup_customer_on_delete();
-                    </pre>
-                <button onclick="copyText('qa2')" class="dark">Copy</button>
-            </div>
+            
 
             <!-- Add more question and answer pairs as needed -->
         </div>
